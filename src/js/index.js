@@ -23,5 +23,10 @@ export function getHighEarners(staff, limit) {
  * Return the updated array.
  */
 export function applyDevBonus(staff) {
-    return [];
+    return staff.map(emp => {
+        if (emp.role === "Developer") {
+            return { ...emp, salary: Math.round(emp.salary * 1.1) };
+        }
+        return emp;
+    });
 }
